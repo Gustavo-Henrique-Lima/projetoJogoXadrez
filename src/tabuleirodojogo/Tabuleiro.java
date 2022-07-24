@@ -50,6 +50,21 @@ public class Tabuleiro {
 	{
 		return linha>=0 && linha<linhas && coluna>=0 && coluna<colunas;
 	}
+	public Peca removerPeca(Posicao posicao)
+	{
+		if(!posicaoExistente(posicao))
+		{
+			throw new ExcecaoTabuleiro("Posição fora do tabuleiro");
+		}
+		if(posicaoPeca(posicao)==null)
+		{
+			return null;
+		}
+		Peca aux=posicaoPeca(posicao);
+		aux.posicao=null;
+		pecas[posicao.getLinha()][posicao.getColuna()]=null;
+		return aux;
+	}
 	public Boolean posicaoExistente(Posicao posicao)
 	{
 		return posicaoExistente(posicao.getLinha(),posicao.getColuna());
@@ -62,4 +77,5 @@ public class Tabuleiro {
 		}
 		return posicaoPeca(posicao) !=null;
 	}
+	
 }

@@ -1,7 +1,11 @@
 package aplicacao;
 
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
 import xadrez.CorPecas;
 import xadrez.PecaXadrez;
+import xadrez.PosicaoXadrez;
 
 public class UI {
 	public static final String ANSI_RESET = "\u001B[0m";
@@ -33,8 +37,22 @@ public class UI {
 		}
 		System.out.println("  a b c d e f g h");
 	}
-
-	private static void printPeca(PecaXadrez peca) {
+	public static PosicaoXadrez posicaoPeca(Scanner entrada)
+	{
+		try
+		{
+			String text=entrada.nextLine();
+			char coluna=text.charAt(0);
+			int linha=Integer.parseInt(text.substring(1));
+			return new PosicaoXadrez(coluna, linha);
+		}
+		catch (RuntimeException e)
+		{
+			throw new InputMismatchException("Erro ao ler a posição, valores validos estão entre a1 e h8");
+		}
+	}
+	private static void printPeca(PecaXadrez peca) 
+	{
 		if (peca == null) {
 			System.out.print("-");
 		} else {
@@ -47,4 +65,5 @@ public class UI {
 		}
 		System.out.print(" ");
 	}
+	
 }
