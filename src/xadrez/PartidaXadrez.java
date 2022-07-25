@@ -64,7 +64,12 @@ public class PartidaXadrez {
 		tabuleiro.localPeca(aux, destino);
 		return capturada;
 	}
-	
+	public boolean[][] movimentosPossiveisParaPeca(PosicaoXadrez posicao)
+	{
+		Posicao posicaoAux=posicao.toPosicao();
+		validarPosicao(posicaoAux);
+		return tabuleiro.posicaoPeca(posicaoAux).movimentosPossiveis();
+	}
 	private void setupInicial()
 	{
 		setupPecaNova('c',1,new Torre(tabuleiro,CorPecas.White));
@@ -72,13 +77,13 @@ public class PartidaXadrez {
 		setupPecaNova('d',2,new Torre(tabuleiro,CorPecas.White));
 		setupPecaNova('e',2,new Torre(tabuleiro,CorPecas.White));
 		setupPecaNova('e',1,new Torre(tabuleiro,CorPecas.White));
-		setupPecaNova('d',1,new Rei(tabuleiro,CorPecas.Black));
+		setupPecaNova('d',1,new Rei(tabuleiro,CorPecas.White));
 		
-		setupPecaNova('c',7,new Torre(tabuleiro,CorPecas.White));
-		setupPecaNova('c',8,new Torre(tabuleiro,CorPecas.White));
-		setupPecaNova('d',7,new Torre(tabuleiro,CorPecas.White));
-		setupPecaNova('e',7,new Torre(tabuleiro,CorPecas.White));
-		setupPecaNova('e',8,new Torre(tabuleiro,CorPecas.White));
-		setupPecaNova('d',8,new Rei(tabuleiro,CorPecas.White));
+		setupPecaNova('c',7,new Torre(tabuleiro,CorPecas.Black));
+		setupPecaNova('c',8,new Torre(tabuleiro,CorPecas.Black));
+		setupPecaNova('d',7,new Torre(tabuleiro,CorPecas.Black));
+		setupPecaNova('e',7,new Torre(tabuleiro,CorPecas.Black));
+		setupPecaNova('e',8,new Torre(tabuleiro,CorPecas.Black));
+		setupPecaNova('d',8,new Rei(tabuleiro,CorPecas.Black));
 	}
 }
