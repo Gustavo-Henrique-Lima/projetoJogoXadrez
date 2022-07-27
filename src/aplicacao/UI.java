@@ -38,10 +38,18 @@ public class UI {
 		printPecasCapturadas(capturadas);
 		System.out.println();
 		System.out.println("Turno: "+partida.getTurno());
-		System.out.println("Esperando jogador: "+partida.getCorJogador());
-		if(partida.getCheck())
+		if(!partida.getCheckMate())
 		{
-			System.out.println("CHECK!!");
+			System.out.println("Esperando jogador: "+partida.getCorJogador());
+			if(partida.getCheck())
+			{
+				System.out.println("CHECK!!");
+			}
+		}
+		else
+		{
+			System.out.println("Cheque-mate!!");
+			System.out.println("Vencedor: "+partida.getCorJogador());
 		}
 	}
 	public static void printBoard(PecaXadrez[][] pecas) {
