@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import tabuleirodojogo.Peca;
 import tabuleirodojogo.Posicao;
 import tabuleirodojogo.Tabuleiro;
+import xadrez.pecas.Peao;
 import xadrez.pecas.Rei;
 import xadrez.pecas.Torre;
 
@@ -203,18 +204,28 @@ public class PartidaXadrez {
 	}
 	private void setupInicial()
 	{
-		setupPecaNova('c',1,new Torre(tabuleiro,CorPecas.WHITE));
-		setupPecaNova('c',2,new Torre(tabuleiro,CorPecas.WHITE));
-		setupPecaNova('d',2,new Torre(tabuleiro,CorPecas.WHITE));
-		setupPecaNova('e',2,new Torre(tabuleiro,CorPecas.WHITE));
-		setupPecaNova('e',1,new Torre(tabuleiro,CorPecas.WHITE));
-		setupPecaNova('d',1,new Rei(tabuleiro,CorPecas.WHITE));
+		setupPecaNova('a',1,new Torre(tabuleiro,CorPecas.WHITE));
+		setupPecaNova('e',1,new Rei(tabuleiro,CorPecas.WHITE));
+		setupPecaNova('h',1,new Torre(tabuleiro,CorPecas.WHITE));
+		setupPecaNova('a',2,new Peao(tabuleiro,CorPecas.WHITE));
+		setupPecaNova('b',2,new Peao(tabuleiro,CorPecas.WHITE));
+		setupPecaNova('c',2,new Peao(tabuleiro,CorPecas.WHITE));
+		setupPecaNova('d',2,new Peao(tabuleiro,CorPecas.WHITE));
+		setupPecaNova('e',2,new Peao(tabuleiro,CorPecas.WHITE));
+		setupPecaNova('f',2,new Peao(tabuleiro,CorPecas.WHITE));
+		setupPecaNova('g',2,new Peao(tabuleiro,CorPecas.WHITE));
+		setupPecaNova('h',2,new Peao(tabuleiro,CorPecas.WHITE));
 		
-		setupPecaNova('c',7,new Torre(tabuleiro,CorPecas.BLACK));
-		setupPecaNova('c',8,new Torre(tabuleiro,CorPecas.BLACK));
-		setupPecaNova('d',7,new Torre(tabuleiro,CorPecas.BLACK));
-		setupPecaNova('e',7,new Torre(tabuleiro,CorPecas.BLACK));
-		setupPecaNova('e',8,new Torre(tabuleiro,CorPecas.BLACK));
-		setupPecaNova('d',8,new Rei(tabuleiro,CorPecas.BLACK));
+		setupPecaNova('a',8,new Torre(tabuleiro,CorPecas.BLACK));
+		setupPecaNova('e',8,new Rei(tabuleiro,CorPecas.BLACK));
+		setupPecaNova('h',8,new Torre(tabuleiro,CorPecas.BLACK));
+		setupPecaNova('a',7,new Peao(tabuleiro,CorPecas.BLACK));
+		setupPecaNova('b',7,new Peao(tabuleiro,CorPecas.BLACK));
+		setupPecaNova('c',7,new Peao(tabuleiro,CorPecas.BLACK));
+		setupPecaNova('d',7,new Peao(tabuleiro,CorPecas.BLACK));
+		setupPecaNova('e',7,new Peao(tabuleiro,CorPecas.BLACK));
+		setupPecaNova('f',7,new Peao(tabuleiro,CorPecas.BLACK));
+		setupPecaNova('g',7,new Peao(tabuleiro,CorPecas.BLACK));
+		setupPecaNova('h',7,new Peao(tabuleiro,CorPecas.BLACK));
 	}
 }
