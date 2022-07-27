@@ -9,6 +9,7 @@ import tabuleirodojogo.Peca;
 import tabuleirodojogo.Posicao;
 import tabuleirodojogo.Tabuleiro;
 import xadrez.pecas.Bispo;
+import xadrez.pecas.Cavalo;
 import xadrez.pecas.Peao;
 import xadrez.pecas.Rei;
 import xadrez.pecas.Torre;
@@ -206,10 +207,12 @@ public class PartidaXadrez {
 	private void setupInicial()
 	{
 		setupPecaNova('a',1,new Torre(tabuleiro,CorPecas.WHITE));
+		setupPecaNova('b',1,new Cavalo(tabuleiro,CorPecas.WHITE));
 		setupPecaNova('c',1,new Bispo(tabuleiro,CorPecas.WHITE));
 		setupPecaNova('e',1,new Rei(tabuleiro,CorPecas.WHITE));
-		setupPecaNova('h',1,new Torre(tabuleiro,CorPecas.WHITE));
 		setupPecaNova('f',1,new Bispo(tabuleiro,CorPecas.WHITE));
+		setupPecaNova('g',1,new Cavalo(tabuleiro,CorPecas.WHITE));
+		setupPecaNova('h',1,new Torre(tabuleiro,CorPecas.WHITE));
 		setupPecaNova('a',2,new Peao(tabuleiro,CorPecas.WHITE));
 		setupPecaNova('b',2,new Peao(tabuleiro,CorPecas.WHITE));
 		setupPecaNova('c',2,new Peao(tabuleiro,CorPecas.WHITE));
@@ -220,8 +223,10 @@ public class PartidaXadrez {
 		setupPecaNova('h',2,new Peao(tabuleiro,CorPecas.WHITE));
 		
 		setupPecaNova('a',8,new Torre(tabuleiro,CorPecas.BLACK));
+		setupPecaNova('b',8,new Cavalo(tabuleiro,CorPecas.BLACK));
 		setupPecaNova('c',8,new Bispo(tabuleiro,CorPecas.BLACK));
 		setupPecaNova('e',8,new Rei(tabuleiro,CorPecas.BLACK));
+		setupPecaNova('g',8,new Cavalo(tabuleiro,CorPecas.BLACK));
 		setupPecaNova('h',8,new Torre(tabuleiro,CorPecas.BLACK));
 		setupPecaNova('f',8,new Bispo(tabuleiro,CorPecas.BLACK));
 		setupPecaNova('a',7,new Peao(tabuleiro,CorPecas.BLACK));
