@@ -48,7 +48,7 @@ public class UI {
 		}
 		else
 		{
-			System.out.println("Cheque-mate!!");
+			System.out.println("xeque-mate!!");
 			System.out.println("Vencedor: "+partida.getCorJogador());
 		}
 	}
