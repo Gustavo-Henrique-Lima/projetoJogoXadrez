@@ -39,6 +39,10 @@ public class UI {
 		System.out.println();
 		System.out.println("Turno: "+partida.getTurno());
 		System.out.println("Esperando jogador: "+partida.getCorJogador());
+		if(partida.getCheck())
+		{
+			System.out.println("CHECK!!");
+		}
 	}
 	public static void printBoard(PecaXadrez[][] pecas) {
 		for (int i = 0; i < pecas.length; i++) {
@@ -105,6 +109,7 @@ public class UI {
 		System.out.print("Pretas: ");
 		System.out.print(ANSI_YELLOW);
 		System.out.println(Arrays.toString(pretas.toArray()));
+		System.out.println(ANSI_RESET);
 	}
 	public static void limparTela()
 	{

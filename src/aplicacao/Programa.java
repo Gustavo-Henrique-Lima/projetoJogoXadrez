@@ -46,6 +46,5 @@ public class Programa {
 				entrada.nextLine();
 			}
 		}
-		
 	}
 }
