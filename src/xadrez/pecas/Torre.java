@@ -60,7 +60,6 @@ public class Torre extends PecaXadrez{
 		}
 		return aux;
 	}
-	
 	@Override
 	public String toString()
 	{
