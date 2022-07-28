@@ -3,13 +3,15 @@ package xadrez.pecas;
 import tabuleirodojogo.Posicao;
 import tabuleirodojogo.Tabuleiro;
 import xadrez.CorPecas;
+import xadrez.PartidaXadrez;
 import xadrez.PecaXadrez;
 
 public class Peao extends PecaXadrez{
-
-	public Peao(Tabuleiro tabuleiro, CorPecas corDaPeca) 
+	private PartidaXadrez partida;
+	public Peao(Tabuleiro tabuleiro, CorPecas corDaPeca,PartidaXadrez partida) 
 	{
 		super(tabuleiro, corDaPeca);
+		this.partida=partida;
 	}
 	@Override
 	public boolean[][] movimentosPossiveis() 
@@ -39,6 +41,19 @@ public class Peao extends PecaXadrez{
 			{
 				aux[pecaAux.getLinha()][pecaAux.getColuna()]=true;
 			}
+			if(posicao.getLinha()==3)
+			{
+				Posicao auxEsquerda=new Posicao(posicao.getLinha(), posicao.getColuna()-1);
+				if(getTabuleiro().posicaoExistente(auxEsquerda) && temPecaInimiga(auxEsquerda) && getTabuleiro().posicaoPeca(auxEsquerda)==partida.getEnPassan())
+				{
+					aux[auxEsquerda.getLinha()-1][auxEsquerda.getColuna()]=true;
+				}
+				Posicao auxDireita=new Posicao(posicao.getLinha(), posicao.getColuna()+1);
+				if(getTabuleiro().posicaoExistente(auxDireita) && temPecaInimiga(auxDireita) && getTabuleiro().posicaoPeca(auxDireita)==partida.getEnPassan())
+				{
+					aux[auxEsquerda.getLinha()-1][auxEsquerda.getColuna()]=true;
+				}
+			}
 		}
 		else
 		{
@@ -62,6 +77,19 @@ public class Peao extends PecaXadrez{
 			if(getTabuleiro().posicaoExistente(pecaAux) && temPecaInimiga(pecaAux))
 			{
 				aux[pecaAux.getLinha()][pecaAux.getColuna()]=true;
+			}
+			if(posicao.getLinha()==4)
+			{
+				Posicao auxEsquerda=new Posicao(posicao.getLinha(), posicao.getColuna()-1);
+				if(getTabuleiro().posicaoExistente(auxEsquerda) && temPecaInimiga(auxEsquerda) && getTabuleiro().posicaoPeca(auxEsquerda)==partida.getEnPassan())
+				{
+					aux[auxEsquerda.getLinha()+1][auxEsquerda.getColuna()]=true;
+				}
+				Posicao auxDireita=new Posicao(posicao.getLinha(), posicao.getColuna()+1);
+				if(getTabuleiro().posicaoExistente(auxDireita) && temPecaInimiga(auxDireita) && getTabuleiro().posicaoPeca(auxDireita)==partida.getEnPassan())
+				{
+					aux[auxEsquerda.getLinha()+1][auxEsquerda.getColuna()]=true;
+				}
 			}
 		}
 		return aux;
