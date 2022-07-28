@@ -119,6 +119,22 @@ public class PartidaXadrez {
 			pecasTabuleiro.remove(capturada);
 			pecasCapturadas.add(capturada);
 		}
+		if(aux instanceof Rei && destino.getColuna()==origem.getColuna()+2)
+		{
+			Posicao origemTorre=new Posicao(origem.getLinha(), origem.getColuna()+3);
+			Posicao destinoTorre=new Posicao(origem.getLinha(), origem.getColuna()+1);
+			PecaXadrez torre=(PecaXadrez)tabuleiro.removerPeca(origemTorre);
+			tabuleiro.localPeca(torre, destinoTorre);
+			torre.aumentarMovimento();
+		}
+		if(aux instanceof Rei && destino.getColuna()==origem.getColuna()-2)
+		{
+			Posicao origemTorre=new Posicao(origem.getLinha(), origem.getColuna()-4);
+			Posicao destinoTorre=new Posicao(origem.getLinha(), origem.getColuna()-1);
+			PecaXadrez torre=(PecaXadrez)tabuleiro.removerPeca(origemTorre);
+			tabuleiro.localPeca(torre, destinoTorre);
+			torre.aumentarMovimento();
+		}
 		return capturada;
 	}
 	private void desfazerMovimento(Posicao origem,Posicao destino,Peca capturada)
@@ -131,6 +147,22 @@ public class PartidaXadrez {
 			tabuleiro.localPeca(capturada, destino);
 			pecasCapturadas.remove(capturada);
 			pecasTabuleiro.add(capturada);
+		}
+		if(aux instanceof Rei && destino.getColuna()==origem.getColuna()+2)
+		{
+			Posicao origemTorre=new Posicao(origem.getLinha(), origem.getColuna()+3);
+			Posicao destinoTorre=new Posicao(origem.getLinha(), origem.getColuna()+1);
+			PecaXadrez torre=(PecaXadrez)tabuleiro.removerPeca(destinoTorre);
+			tabuleiro.localPeca(torre, origemTorre);
+			torre.diminuirMovimento();
+		}
+		if(aux instanceof Rei && destino.getColuna()==origem.getColuna()-2)
+		{
+			Posicao origemTorre=new Posicao(origem.getLinha(), origem.getColuna()-4);
+			Posicao destinoTorre=new Posicao(origem.getLinha(), origem.getColuna()-1);
+			PecaXadrez torre=(PecaXadrez)tabuleiro.removerPeca(destinoTorre);
+			tabuleiro.localPeca(torre, origemTorre);
+			torre.diminuirMovimento();
 		}
 	}
 	public boolean[][] movimentosPossiveisParaPeca(PosicaoXadrez posicao)
@@ -211,7 +243,7 @@ public class PartidaXadrez {
 		setupPecaNova('b',1,new Cavalo(tabuleiro,CorPecas.WHITE));
 		setupPecaNova('c',1,new Bispo(tabuleiro,CorPecas.WHITE));
 		setupPecaNova('d',1,new Rainha(tabuleiro,CorPecas.WHITE));
-		setupPecaNova('e',1,new Rei(tabuleiro,CorPecas.WHITE));
+		setupPecaNova('e',1,new Rei(tabuleiro,CorPecas.WHITE,this));
 		setupPecaNova('f',1,new Bispo(tabuleiro,CorPecas.WHITE));
 		setupPecaNova('g',1,new Cavalo(tabuleiro,CorPecas.WHITE));
 		setupPecaNova('h',1,new Torre(tabuleiro,CorPecas.WHITE));
@@ -228,7 +260,7 @@ public class PartidaXadrez {
 		setupPecaNova('b',8,new Cavalo(tabuleiro,CorPecas.BLACK));
 		setupPecaNova('c',8,new Bispo(tabuleiro,CorPecas.BLACK));
 		setupPecaNova('d',8,new Rainha(tabuleiro,CorPecas.BLACK));
-		setupPecaNova('e',8,new Rei(tabuleiro,CorPecas.BLACK));
+		setupPecaNova('e',8,new Rei(tabuleiro,CorPecas.BLACK,this));
 		setupPecaNova('g',8,new Cavalo(tabuleiro,CorPecas.BLACK));
 		setupPecaNova('h',8,new Torre(tabuleiro,CorPecas.BLACK));
 		setupPecaNova('f',8,new Bispo(tabuleiro,CorPecas.BLACK));
