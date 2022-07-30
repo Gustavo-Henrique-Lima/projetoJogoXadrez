@@ -37,7 +37,12 @@ public class Programa {
 				if(partida.getPromocao()!=null)
 				{
 					System.out.println("Insira o tipo de peça que você deseja promover (B/Q/T/C): ");
-					String tipo=entrada.nextLine();
+					String tipo=entrada.nextLine().toUpperCase();
+					while (!tipo.equals("B") && !tipo.equals("T") && !tipo.equals("C") && !tipo.equals("Q"))
+					{
+						System.out.println("Valor inválido!!Insira o tipo de peça que você deseja promover (B/Q/T/C): ");
+						tipo=entrada.nextLine().toUpperCase();
+					}
 					partida.transformar(tipo);
 				}
 			}

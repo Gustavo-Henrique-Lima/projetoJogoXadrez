@@ -1,11 +1,9 @@
 package xadrez;
 
 
-import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import tabuleirodojogo.Peca;
 import tabuleirodojogo.Posicao;
 import tabuleirodojogo.Tabuleiro;
@@ -123,7 +121,7 @@ public class PartidaXadrez {
 		}
 		if(!tipo.equals("B") && !tipo.equals("T") && !tipo.equals("C") && !tipo.equals("Q"))
 		{
-			throw new InvalidParameterException("Tipo inválido para promoção");
+			return promocao;
 		}
 		Posicao posicaoPecaPromovida=promocao.getPosicaoPeca().toPosicao();
 		Peca aux=tabuleiro.removerPeca(posicaoPecaPromovida);
