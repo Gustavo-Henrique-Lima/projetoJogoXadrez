@@ -34,6 +34,12 @@ public class Programa {
 				{
 					pecasCapturadas.add(pecaCapturada);
 				}
+				if(partida.getPromocao()!=null)
+				{
+					System.out.println("Insira o tipo de peça que você deseja promover (B/Q/T/C): ");
+					String tipo=entrada.nextLine();
+					partida.transformar(tipo);
+				}
 			}
 			catch (ExcecaoXadrez e) 
 			{
